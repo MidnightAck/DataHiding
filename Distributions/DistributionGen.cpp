@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-#include "Distribution.h"
+#include "DistributionGen.h"
 using namespace std;
 
 void menu(){
@@ -25,7 +25,7 @@ void GaussTest(){
     vector<double> dis=DisGen.GaussDisGen(n);
     ofstream outfile;
     outfile.open("GaussDis.txt");
-    for(int 0;i<dis.size();i++) outfile<<dis[i]<<" ";
+    for(int i=0;i<dis.size();i++) outfile<<dis[i]<<" ";
     outfile<<endl;
     cout<<"数据已输出到文件 GaussDis.txt"<<endl;
     while(1){
@@ -34,25 +34,25 @@ void GaussTest(){
         cin>>n;
         if(n==0)    return;
         if(n==1){
-            for(int 0;i<dis.size();i++) cout<<dis[i]<<" ";
+            for(int i=0;i<dis.size();i++) cout<<dis[i]<<" ";
         }
         cout<<endl;
     }
     return;
 }
 
-void EXpTest(){
+void ExpTest(){
     system("cls");
     DistributionGen DisGen;
     int n;
     cout<<"请输入数据规模： ";
     cin>>n;
     double beta;
-    cout<<"请输入指数（如果不输入默认为随机生成）"
-    vector<double> dis=DisGen.ExpDisGen(n);
+	cout << "请输入指数（如果不输入默认为随机生成）";
+    vector<double> dis=DisGen.ExpDisGen(n,0.5);
     ofstream outfile;
     outfile.open("ExpDis.txt");
-    for(int 0;i<dis.size();i++) outfile<<dis[i]<<" ";
+    for(int i=0;i<dis.size();i++) outfile<<dis[i]<<" ";
     outfile<<endl;
     cout<<"数据已输出到文件 ExpDis.txt"<<endl;
     while(1){
@@ -61,11 +61,15 @@ void EXpTest(){
         cin>>n;
         if(n==0)    return;
         if(n==1){
-            for(int 0;i<dis.size();i++) cout<<dis[i]<<" ";
+            for(int i=0;i<dis.size();i++) cout<<dis[i]<<" ";
         }
         cout<<endl;
     }
     return;
+}
+
+void GGDTest() {
+
 }
 
 int main()
@@ -75,7 +79,9 @@ int main()
         int choice;
         cin>>choice;
         if(choice==0)   break;
-        if(choice==1)   GaussTest();
-        if(choice==2)   
+		if (choice == 1)   GaussTest();	break;
+		if (choice == 2)   ExpTest(); break;
+		if (choice == 3)   GGDTest();	break;
     }
+	return 0;
 }

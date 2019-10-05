@@ -1,9 +1,10 @@
-#ifdef DISTRIBUTIONGEN
-#ifndef DISTRIBUTIONGEN
+#pragma once
+
 #include<random>
 #include<time.h>
 #include<vector>
 #include<cmath>
+using namespace std;
 
 #define PI 3.14159265358979323846
 #define N 10000
@@ -19,13 +20,13 @@ private:
     double GGDGen(double c);
 public:
 //外部接口
-    vector<double> GaussDisGen(int n) const ;
-    vector<double> ExpDisGen(int n,double beta) const ;
-    vector<double> GammaDisGen(int n,double alpha,double beta) const ;
-    vector<bool> BonDisGen(int n) const ;
-    vector<double> GGDDisGen(int n,double c) const ;
-    void AnalyzGaussDis(vector<int> GaussDis);
-    void AnalyzeExp(vector<int> ExpDis);
+    vector<double> GaussDisGen(int n);
+	vector<double> ExpDisGen(int n, double beta);
+    vector<double> GammaDisGen(int n,double alpha,double beta);
+	vector<bool> BonDisGen(int n);
+	vector<double> GGDDisGen(int n, double c);
+    void AnalyzGaussDis(vector<double> GaussDis);
+    void AnalyzeExp(vector<double> ExpDis);
 };
 
 //生成两个0-1之间的随机数，MT实现
@@ -53,7 +54,7 @@ double DistributionGen::GaussGen(){
     double U1,U2;
     U1=RandGen();
     U2=RandGen();
-    double Z=sqrt((-2)*log(U1)*sin(2*PI*U2);
+    double Z=sqrt((-2)*log(U1)*sin(2*PI*U2));
     return Z;
 }
 
@@ -146,7 +147,6 @@ bool DistributionGen::BonGen(){
     bool Z=0;
     for(int i=0;i<RandGenint();++i){
         Z=b(generator);
-        if(Z)   ++c;
     }
     return Z;
 }
@@ -162,52 +162,52 @@ double DistributionGen::GGDGen(double c){
 }
 
 //生成高斯分布数据
-vector<double> GammaGen(int n) const {
+vector<double>  DistributionGen::GaussDisGen(int n){
     vector<double> res;
-    for(int 0;i<n;++i){
+    for(int i=0;i<n;++i){
         res[i]=GaussGen();
     }
     return res;
 }
 
 //生成指数分布数据
-vector<double> ExpGen(int n,double beta) const {
+vector<double>  DistributionGen::ExpDisGen(int n,double beta){
     vector<double> res;
-    for(int 0;i<n;++i){
+    for(int i=0;i<n;++i){
         res[i]=ExpGen(beta);
     }
     return res;
 }
 
 //生成伽玛分布数据
-vector<double> GammaGen(int n,double alpha,double beta) const {
+vector<double>  DistributionGen::GammaDisGen(int n,double alpha,double beta){
     vector<double> res;
-    for(int 0;i<n;++i){
+    for(int i=0;i<n;++i){
         res[i]=GammaGen(alpha,beta);
     }
     return res;
 }
 
 //生成伯努利分布数据
-vector<bool> BonGen(int n) const {
+vector<bool>   DistributionGen::BonDisGen(int n){
     vector<bool> res;
-    for(int 0;i<n;++i){
+    for(int i=0;i<n;++i){
         res[i]=BonGen();
     }
     return res;
 }
 
 //生成伽玛分布数据
-vector<double> GGDGen(int n,double c) const {
+vector<double>   DistributionGen::GGDDisGen(int n,double c){
     vector<double> res;
-    for(int 0;i<n;++i){
+    for(int i=0;i<n;++i){
         res[i]=GGDGen(c);
     }
     return res;
 }
 
 //似然估计高斯分布的参数
-void DistributionGen::AnalyzeGaussDis(vector<double> gauss){
+void DistributionGen::AnalyzGaussDis(vector<double> gauss){
     double miu=0,sigma=0;
     for(int i=0;i<N;++i){
         miu+=gauss[i];
@@ -218,9 +218,11 @@ void DistributionGen::AnalyzeGaussDis(vector<double> gauss){
     }
     sigma/=N;
     sigma=sqrt(sigma);
-    cout<<"该高斯分布的参数为："<<endl<<"u: "<<miu<<endl<<"sigma: "<<sigam<<endl;
+    cout<<"该高斯分布的参数为："<<endl<<"u: "<<miu<<endl<<"sigma: "<<sigma<<endl;
     return;
 }
 
-void DistributionGen::AnalyzeExp(){    
+void DistributionGen::AnalyzeExp(vector<double> exp){
 }
+
+
