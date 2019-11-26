@@ -1,0 +1,25 @@
+﻿  main.cpp
+e:\demo\datahiding2\datahiding2\main.cpp(17): warning C4018: “<”: 有符号/无符号不匹配
+e:\demo\datahiding2\datahiding2\main.cpp(18): warning C4018: “<”: 有符号/无符号不匹配
+e:\demo\datahiding2\datahiding2\main.cpp(142): warning C4244: “参数”: 从“double”转换到“const _Ty”，可能丢失数据
+          with
+          [
+              _Ty=int
+          ]
+e:\demo\datahiding2\datahiding2\main.cpp(143): warning C4244: “参数”: 从“double”转换到“const _Ty”，可能丢失数据
+          with
+          [
+              _Ty=int
+          ]
+e:\demo\datahiding2\datahiding2\main.cpp(186): warning C4244: “参数”: 从“double”转换到“const _Ty”，可能丢失数据
+          with
+          [
+              _Ty=int
+          ]
+e:\demo\datahiding2\datahiding2\main.cpp(187): warning C4244: “参数”: 从“double”转换到“const _Ty”，可能丢失数据
+          with
+          [
+              _Ty=int
+          ]
+e:\demo\datahiding2\datahiding2\main.cpp(205): warning C4018: “<”: 有符号/无符号不匹配
+  Datahiding2.vcxproj -> E:\demo\Datahiding2\Debug\Datahiding2.exe
